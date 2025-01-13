@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { APP_GUARD } from '@nestjs/core';
 import { IpGuard } from './ip.guard';
 import { RedisModule } from './redis/redis.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { RedisModule } from './redis/redis.module';
       port: 6378,
       db: 0,
     }),
+    ScheduleModule.forRoot(),
   ],
   controllers: [AppController],
   providers: [
